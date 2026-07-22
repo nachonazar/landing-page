@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2A7DA3;
+  --color-secondary: #1E5F7A;
+
+  --color-background: #f9f9ff;
+  --color-on-background: #111c2c;
+
+  --color-surface: #ffffff;
+  --color-surface-container-low: #f4f5fa;
+  --color-surface-container-highest: #e9eaf2;
+
+  --color-on-primary: #ffffff;
+  --color-on-surface: #111c2c;
+  --color-on-surface-variant: #4a5568;
+}
+
+@layer utilities {
+  .ambient-shadow {
+    box-shadow: 0px 10px 30px rgba(42, 125, 163, 0.08);
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 15px 35px rgba(42, 125, 163, 0.12);
+  }
+}
+
+body {
+  background-color: #f9f9ff;
+  color: #111c2c;
+  overflow-x: hidden;
+}
