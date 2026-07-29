@@ -22,15 +22,22 @@ const Inicio = () => {
               personalizadas, con un enfoque clínico humano.
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <button className="bg-primary text-on-primary font-semibold px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
-                Reservar Cita
-                <span className="material-symbols-outlined">
-                  calendar_month
-                </span>
-              </button>
-              <button className="border-2 border-secondary text-secondary font-semibold px-10 py-4 rounded-xl hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
-                Ver Programas
-              </button>
+              {/* Botón 1: Agendar por WhatsApp (Antes Reservar Cita) */}
+              <a
+                href="#contacto"
+                className="inline-flex justify-center items-center gap-2 bg-teal-700 text-white px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:bg-teal-800 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]"
+              >
+                <span className="material-symbols-outlined">chat</span>
+                Agendar por WhatsApp
+              </a>
+              
+              {/* Botón 2: Ver Servicios (Antes Ver Programas) */}
+              <a
+                href="#servicios"
+                className="inline-flex justify-center items-center gap-2 border-2 border-slate-900 text-slate-900 px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:bg-slate-50 transition-all duration-300"
+              >
+                Ver Servicios
+              </a>
             </div>
           </div>
           <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-[500px]">

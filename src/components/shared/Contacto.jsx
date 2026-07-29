@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
 const Contacto = () => {
-  // Configuración de react-hook-form
+  // Configuración de react-hook-form mantenida del código original
   const {
     register,
     handleSubmit,
@@ -35,97 +35,50 @@ const Contacto = () => {
   };
 
   return (
-    <section id="contacto" className="scroll-mt-20">
-      {/* Hero Section */}
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-12 md:pt-24 mb-16 md:mb-24 text-center">
-        <div className="max-w-4xl mx-auto">
-          <span className="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6 block">
+    <section
+      className="py-20 px-6 md:px-12 bg-white scroll-mt-20"
+      id="contacto"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Header de la sección */}
+        <div className="text-center mb-16 space-y-4">
+          <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold uppercase tracking-wider">
             Atención Especializada
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-on-surface mb-8 leading-[1.1] font-headline-xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
             Comencemos el camino hacia una mejor comunicación
-          </h1>
-          <p className="text-xl md:text-2xl text-on-surface-variant font-body-lg leading-relaxed max-w-2xl mx-auto">
+          </h2>
+          <p className="text-base text-slate-600 max-w-2xl mx-auto">
             Nuestros especialistas están disponibles para brindarte la
             orientación que necesitas. Agenda tu valoración inicial ahora.
           </p>
         </div>
-      </div>
 
-      {/* Main High-Conversion Area */}
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="grid grid-cols-1 gap-10 items-start max-w-4xl mx-auto">
-          {/* Primary CTA: WhatsApp */}
-          <div className="glass-card p-8 md:p-14 rounded-3xl pro-shadow border border-white relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-              <span className="material-symbols-outlined text-[12rem] text-secondary">
-                chat_bubble
-              </span>
-            </div>
-            <div className="relative z-10 text-center md:text-left">
-              <h3 className="text-3xl font-bold text-on-surface mb-4 font-headline-lg">
-                Atención Directa
-              </h3>
-              <p className="text-lg text-on-surface-variant mb-12 max-w-xl">
-                Resolución de dudas e inquietudes en tiempo real a través de
-                nuestro canal de WhatsApp profesional. Es el medio más rápido
-                para coordinar tu cita.
-              </p>
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <a
-                  className="w-full md:w-auto bg-secondary text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-on-secondary-container shadow-xl hover:shadow-secondary/25 transition-all flex items-center justify-center gap-4 active:scale-[0.98]"
-                  href="https://wa.me/56912345678"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="material-symbols-outlined text-3xl">
-                    chat
-                  </span>
-                  Contactar vía WhatsApp
-                </a>
-                <div className="flex flex-col items-center md:items-start">
-                  <p className="text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold mb-2">
-                    Otras opciones
-                  </p>
-
-                  <a
-                    className="flex items-center gap-3 text-primary hover:text-primary-container transition-all group font-bold"
-                    href="tel:+56912345678"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                      <span className="material-symbols-outlined text-lg">
-                        call
-                      </span>
-                    </div>
-                    <span>Llamar ahora: +56 9 1234 5678</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Formulario de EmailJS integrado */}
-          <div className="glass-card p-8 md:p-14 rounded-3xl pro-shadow border border-white">
-            <h3 className="text-3xl font-bold text-on-surface mb-6 font-headline-lg">
-              Envianos un mensaje
+        {/* Contenedor Grid Principal */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Columna Izquierda: Formulario de Contacto (Orden 2 en móvil, 1 en desktop) */}
+          <div className="bg-slate-50/50 p-8 md:p-10 rounded-2xl shadow-sm border border-slate-100 order-2 lg:order-1">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+              Envíanos un mensaje
             </h3>
 
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-6"
-            >
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Input: Nombre */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+              <div className="space-y-2">
+                <label
+                  className="block text-sm font-semibold text-slate-700 uppercase tracking-wider"
+                  htmlFor="name"
+                >
                   Nombre
                 </label>
                 <input
+                  id="name"
                   type="text"
                   placeholder="Tu nombre completo"
-                  className={`w-full h-12 px-4 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors ${
+                  className={`w-full px-4 py-3 rounded-lg border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
                     errors.from_name
-                      ? "border-error focus:ring-error"
-                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-slate-200 focus:ring-blue-500"
                   }`}
                   {...register("from_name", {
                     required: "El nombre es un dato obligatorio",
@@ -141,52 +94,60 @@ const Contacto = () => {
                   })}
                 />
                 {errors.from_name && (
-                  <span className="text-error text-xs mt-1">
+                  <span className="text-red-500 text-xs mt-1 block">
                     {errors.from_name.message}
                   </span>
                 )}
               </div>
 
               {/* Input: Email */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+              <div className="space-y-2">
+                <label
+                  className="block text-sm font-semibold text-slate-700 uppercase tracking-wider"
+                  htmlFor="email"
+                >
                   Email
                 </label>
                 <input
+                  id="email"
                   type="email"
                   placeholder="tu@email.com"
-                  className={`w-full h-12 px-4 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors ${
+                  className={`w-full px-4 py-3 rounded-lg border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
                     errors.from_email
-                      ? "border-error focus:ring-error"
-                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-slate-200 focus:ring-blue-500"
                   }`}
                   {...register("from_email", {
                     required: "El email es obligatorio",
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Ingresá un email válido",
+                      message: "Ingresa un email válido",
                     },
                   })}
                 />
                 {errors.from_email && (
-                  <span className="text-error text-xs mt-1">
+                  <span className="text-red-500 text-xs mt-1 block">
                     {errors.from_email.message}
                   </span>
                 )}
               </div>
 
               {/* Input: Teléfono */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+              <div className="space-y-2">
+                <label
+                  className="block text-sm font-semibold text-slate-700 uppercase tracking-wider"
+                  htmlFor="phone"
+                >
                   Teléfono
                 </label>
                 <input
+                  id="phone"
                   type="tel"
                   placeholder="Ej: +56 9 1234 5678"
-                  className={`w-full h-12 px-4 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors ${
+                  className={`w-full px-4 py-3 rounded-lg border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
                     errors.phone
-                      ? "border-error focus:ring-error"
-                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-slate-200 focus:ring-blue-500"
                   }`}
                   {...register("phone", {
                     required: "El teléfono es obligatorio",
@@ -202,24 +163,28 @@ const Contacto = () => {
                   })}
                 />
                 {errors.phone && (
-                  <span className="text-error text-xs mt-1">
+                  <span className="text-red-500 text-xs mt-1 block">
                     {errors.phone.message}
                   </span>
                 )}
               </div>
 
               {/* Textarea: Mensaje */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+              <div className="space-y-2">
+                <label
+                  className="block text-sm font-semibold text-slate-700 uppercase tracking-wider"
+                  htmlFor="message"
+                >
                   Mensaje
                 </label>
                 <textarea
-                  rows={4}
+                  id="message"
+                  rows="4"
                   placeholder="¿En qué podemos ayudarte?"
-                  className={`w-full px-4 py-3 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors resize-none ${
+                  className={`w-full px-4 py-3 rounded-lg border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none ${
                     errors.message
-                      ? "border-error focus:ring-error"
-                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-slate-200 focus:ring-blue-500"
                   }`}
                   {...register("message", {
                     required: "El mensaje es obligatorio",
@@ -229,9 +194,9 @@ const Contacto = () => {
                     },
                     maxLength: { value: 500, message: "Máximo 500 caracteres" },
                   })}
-                />
+                ></textarea>
                 {errors.message && (
-                  <span className="text-error text-xs mt-1">
+                  <span className="text-red-500 text-xs mt-1 block">
                     {errors.message.message}
                   </span>
                 )}
@@ -239,71 +204,101 @@ const Contacto = () => {
 
               {/* Feedback de envío */}
               {estado === "ok" && (
-                <p className="text-emerald-600 text-sm bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
+                <p className="text-teal-700 text-sm bg-teal-50 p-4 rounded-lg border border-teal-200">
                   ✅ Mensaje enviado correctamente. Te contactaremos pronto.
                 </p>
               )}
               {estado === "error" && (
-                <p className="text-error text-sm bg-error/10 p-4 rounded-xl border border-error/20">
-                  ❌ Ocurrió un error. Intentá de nuevo o contactanos por
+                <p className="text-red-700 text-sm bg-red-50 p-4 rounded-lg border border-red-200">
+                  ❌ Ocurrió un error. Intenta de nuevo o contáctanos por
                   WhatsApp.
                 </p>
               )}
 
+              {/* Botón Submit */}
               <button
                 type="submit"
                 disabled={enviando}
-                className="w-full h-14 mt-2 bg-primary text-white rounded-2xl font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-slate-800 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:active:scale-100"
               >
-                {enviando ? "Enviando..." : "Enviar mensaje"}
+                {enviando ? "ENVIANDO..." : "ENVIAR MENSAJE"}
               </button>
             </form>
           </div>
 
-          {/* Info Grid: Horarios y Características (Mantenido del nuevo proyecto) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            {/* Schedule */}
-            <div className="glass-card p-8 rounded-2xl border border-surface-variant/50">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">
-                    schedule
+          {/* Columna Derecha: Contacto Directo y Horarios (Orden 1 en móvil, 2 en desktop) */}
+          <div className="space-y-8 order-1 lg:order-2 flex flex-col justify-center">
+            {/* Tarjeta WhatsApp */}
+            <div className="bg-slate-900 p-8 md:p-10 rounded-2xl shadow-lg text-white relative overflow-hidden">
+              {/* Círculo decorativo de fondo */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
+
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-4">Atención Directa</h3>
+                <p className="text-slate-300 mb-8 text-sm md:text-base leading-relaxed">
+                  Resolución de dudas e inquietudes en tiempo real a través de
+                  nuestro canal de WhatsApp profesional. Es el medio más rápido
+                  para coordinar tu cita.
+                </p>
+
+                <a
+                  href="https://wa.me/56912345678" // Reemplaza por tu número
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full bg-green-600 text-white py-4 px-6 rounded-xl font-bold uppercase text-sm hover:bg-green-700 transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-xl mb-6 active:scale-[0.98]"
+                >
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                  </svg>
+                  Contactar vía WhatsApp
+                </a>
+
+                {/* Divisor */}
+                <div className="flex items-center gap-4 text-slate-500 mb-6">
+                  <div className="h-px bg-slate-700 flex-1"></div>
+                  <span className="text-xs uppercase font-semibold tracking-wider">
+                    Otras Opciones
                   </span>
+                  <div className="h-px bg-slate-700 flex-1"></div>
                 </div>
-                <h4 className="text-xl font-bold text-on-surface">
-                  Horario Semanal
-                </h4>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center pb-3 border-b border-surface-variant/30">
-                  <span className="text-on-surface-variant">
-                    Lunes a Viernes
-                  </span>
-                  <span className="font-bold text-on-surface">
-                    16:00 — 21:00
-                  </span>
-                </div>
-                <div className="flex justify-between items-center text-error/60">
-                  <span>Sábado — Domingo</span>
-                  <span className="font-bold">Cerrado</span>
+
+                <div className="flex items-center justify-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-white text-[20px]">
+                      call
+                    </span>
+                  </div>
+                  <a
+                    className="text-sm font-semibold text-white hover:text-blue-300 transition-colors"
+                    href="tel:+56912345678"
+                  >
+                    Llamar ahora: +56 9 1234 5678
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Features/Trust */}
-            <div className="glass-card p-8 rounded-2xl border border-surface-variant/50 flex flex-col justify-center bg-primary-container/[0.02]">
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-secondary text-2xl">
-                    clinical_notes
-                  </span>
-                  <div>
-                    <p className="font-bold text-on-surface">
-                      Evaluación Integral
-                    </p>
-                    <p className="text-sm text-on-surface-variant">
-                      Diagnósticos precisos para tratamientos efectivos.
-                    </p>
+            {/* Mini Tarjeta de Horarios */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 shrink-0">
+                <span className="material-symbols-outlined text-[20px]">
+                  schedule
+                </span>
+              </div>
+              <div className="w-full">
+                <h4 className="text-lg font-bold text-slate-900 mb-3">
+                  Horario Semanal
+                </h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between items-center text-slate-600 border-b border-slate-100 pb-2">
+                    <span>Lunes a Viernes</span>
+                    <span className="font-bold text-slate-900">
+                      16:00 — 21:00
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-slate-400 pt-1">
+                    <span>Sábado — Domingo</span>
+                    <span className="text-red-500 font-semibold">Cerrado</span>
                   </div>
                 </div>
               </div>
