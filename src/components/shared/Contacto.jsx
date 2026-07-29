@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 const Contacto = () => {
+  // Configuración de react-hook-form
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const [enviando, setEnviando] = useState(false);
+  const [estado, setEstado] = useState(null); // "ok" | "error"
+
+  const onSubmit = async (form) => {
+    setEnviando(true);
+    setEstado(null);
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        form,
+        import.meta.env.VITE_PUBLIC_KEY,
+      );
+      setEstado("ok");
+      reset();
+    } catch (error) {
+      console.error(error);
+      setEstado("error");
+    } finally {
+      setEnviando(false);
+    }
+  };
+
   return (
     <section id="contacto" className="scroll-mt-20">
       {/* Hero Section */}
@@ -71,7 +104,163 @@ const Contacto = () => {
             </div>
           </div>
 
-          {/* Info Grid: Professional Anchors */}
+          {/* Formulario de EmailJS integrado */}
+          <div className="glass-card p-8 md:p-14 rounded-3xl pro-shadow border border-white">
+            <h3 className="text-3xl font-bold text-on-surface mb-6 font-headline-lg">
+              Envianos un mensaje
+            </h3>
+
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-6"
+            >
+              {/* Input: Nombre */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  placeholder="Tu nombre completo"
+                  className={`w-full h-12 px-4 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors ${
+                    errors.from_name
+                      ? "border-error focus:ring-error"
+                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                  }`}
+                  {...register("from_name", {
+                    required: "El nombre es un dato obligatorio",
+                    minLength: {
+                      value: 3,
+                      message: "Debe tener al menos 3 caracteres",
+                    },
+                    maxLength: { value: 60, message: "Máximo 60 caracteres" },
+                    pattern: {
+                      value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/,
+                      message: "Solo letras y espacios",
+                    },
+                  })}
+                />
+                {errors.from_name && (
+                  <span className="text-error text-xs mt-1">
+                    {errors.from_name.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Input: Email */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="tu@email.com"
+                  className={`w-full h-12 px-4 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors ${
+                    errors.from_email
+                      ? "border-error focus:ring-error"
+                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                  }`}
+                  {...register("from_email", {
+                    required: "El email es obligatorio",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Ingresá un email válido",
+                    },
+                  })}
+                />
+                {errors.from_email && (
+                  <span className="text-error text-xs mt-1">
+                    {errors.from_email.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Input: Teléfono */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                  Teléfono
+                </label>
+                <input
+                  type="tel"
+                  placeholder="Ej: +56 9 1234 5678"
+                  className={`w-full h-12 px-4 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors ${
+                    errors.phone
+                      ? "border-error focus:ring-error"
+                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                  }`}
+                  {...register("phone", {
+                    required: "El teléfono es obligatorio",
+                    minLength: {
+                      value: 8,
+                      message: "Debe tener al menos 8 caracteres",
+                    },
+                    maxLength: { value: 20, message: "Máximo 20 caracteres" },
+                    pattern: {
+                      value: /^[0-9+\-\s()]+$/,
+                      message: "Solo números, espacios y símbolos + - ()",
+                    },
+                  })}
+                />
+                {errors.phone && (
+                  <span className="text-error text-xs mt-1">
+                    {errors.phone.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Textarea: Mensaje */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                  Mensaje
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="¿En qué podemos ayudarte?"
+                  className={`w-full px-4 py-3 rounded-xl border bg-surface text-on-surface outline-none focus:ring-1 transition-colors resize-none ${
+                    errors.message
+                      ? "border-error focus:ring-error"
+                      : "border-surface-variant/50 focus:border-secondary focus:ring-secondary"
+                  }`}
+                  {...register("message", {
+                    required: "El mensaje es obligatorio",
+                    minLength: {
+                      value: 10,
+                      message: "Debe tener al menos 10 caracteres",
+                    },
+                    maxLength: { value: 500, message: "Máximo 500 caracteres" },
+                  })}
+                />
+                {errors.message && (
+                  <span className="text-error text-xs mt-1">
+                    {errors.message.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Feedback de envío */}
+              {estado === "ok" && (
+                <p className="text-emerald-600 text-sm bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
+                  ✅ Mensaje enviado correctamente. Te contactaremos pronto.
+                </p>
+              )}
+              {estado === "error" && (
+                <p className="text-error text-sm bg-error/10 p-4 rounded-xl border border-error/20">
+                  ❌ Ocurrió un error. Intentá de nuevo o contactanos por
+                  WhatsApp.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={enviando}
+                className="w-full h-14 mt-2 bg-primary text-white rounded-2xl font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                {enviando ? "Enviando..." : "Enviar mensaje"}
+              </button>
+            </form>
+          </div>
+
+          {/* Info Grid: Horarios y Características (Mantenido del nuevo proyecto) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {/* Schedule */}
             <div className="glass-card p-8 rounded-2xl border border-surface-variant/50">
