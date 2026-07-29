@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo.png";
 
 const Menu = () => {
   const irArriba = () => {
@@ -12,12 +13,11 @@ const Menu = () => {
           className="flex items-center gap-2 cursor-pointer transition-all duration-200"
           onClick={irArriba}
         >
-          <span className="material-symbols-outlined text-primary text-3xl">
-            record_voice_over
-          </span>
-          <span className="text-2xl font-bold text-primary">
-            Voz &amp; Vida
-          </span>
+          <img
+            src={logo}
+            alt="logo landing page"
+            className="w-auto h-12 object-contain"
+          />
         </div>
         <nav className="hidden md:flex gap-8">
           <a

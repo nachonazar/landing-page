@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo.png";
 
 const Footer = () => {
   const irArriba = () => {
@@ -6,19 +7,18 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-surface-container-highest">
+    <footer className="w-full bg-black">
       <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-10 py-16 max-w-[1120px] mx-auto gap-6">
         <div className="flex flex-col items-center md:items-start gap-4">
           <div
             className="flex items-center gap-2 cursor-pointer"
             onClick={irArriba}
           >
-            <span className="material-symbols-outlined text-primary text-3xl">
-              record_voice_over
-            </span>
-            <span className="font-bold text-2xl text-primary">
-              Voz &amp; Vida
-            </span>
+            <img
+              src={logo}
+              alt="logo landing page"
+              className="w-auto h-12 object-contain invert"
+            />
           </div>
           <p className="text-on-surface-variant text-center md:text-left max-w-xs">
             Fonoaudiología especializada para todas las etapas de la vida.
