@@ -242,7 +242,7 @@ const Contacto = () => {
                 </p>
 
                 <a
-                  href="https://wa.me/56912345678" // Reemplaza por tu número
+                  href="https://wa.me/5493816016506" // Reemplaza por tu número
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 w-full bg-green-600 text-white py-4 px-6 rounded-xl font-bold uppercase text-sm hover:bg-green-700 transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-xl mb-6 active:scale-[0.98]"
@@ -270,9 +270,9 @@ const Contacto = () => {
                   </div>
                   <a
                     className="text-sm font-semibold text-white hover:text-blue-300 transition-colors"
-                    href="tel:+56912345678"
+                    href="tel:+5493816016506"
                   >
-                    Llamar ahora: +56 9 1234 5678
+                    Llamar ahora: +54 9 381 601 6506
                   </a>
                 </div>
               </div>
