@@ -4,7 +4,7 @@ const Nosotros = () => {
   return (
     <section
       id="nosotros"
-      className="max-w-container-max mx-auto px-margin-desktop py-section-gap scroll-mt-20"
+      className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap scroll-mt-20"
     >
       {/* Hero Bio Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-section-gap items-center mb-section-gap">
@@ -22,7 +22,7 @@ const Nosotros = () => {
           <div className="inline-block px-4 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-md text-label-md">
             Fonoaudióloga Clínica
           </div>
-          <h2 className="font-headline-xl text-headline-xl text-on-background leading-tight">
+          <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background leading-tight">
             Hola, soy la{" "}
             <span className="text-primary">
               Lic. en Fonoaudiología Natalia Rodriguez

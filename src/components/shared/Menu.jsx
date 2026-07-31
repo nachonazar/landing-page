@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 
 const Menu = () => {
+  const [menuAbierto, setMenuAbierto] = useState(false);
+
   const irArriba = () => {
     window.scrollTo(0, 0);
+    setMenuAbierto(false);
   };
 
   return (
@@ -19,6 +22,7 @@ const Menu = () => {
             className="w-auto h-12 object-contain"
           />
         </div>
+
         <nav className="hidden md:flex gap-8">
           <a
             className="font-semibold text-primary border-b-2 border-primary pb-1"
@@ -46,10 +50,47 @@ const Menu = () => {
             Contacto
           </a>
         </nav>
-        <button className="md:hidden text-primary">
-          <span className="material-symbols-outlined text-3xl">menu</span>
+
+        <button
+          className="md:hidden text-primary"
+          onClick={() => setMenuAbierto(!menuAbierto)}
+          aria-label="Abrir menú"
+        >
+          <span className="material-symbols-outlined text-3xl">
+            {menuAbierto ? "close" : "menu"}
+          </span>
         </button>
       </div>
+
+      {/* Menú mobile */}
+      {menuAbierto && (
+        <nav className="md:hidden flex flex-col items-center gap-4 bg-surface px-6 py-4 shadow-sm">
+          <a className="font-semibold text-primary" href="#" onClick={irArriba}>
+            Inicio
+          </a>
+          <a
+            className="font-semibold text-on-surface-variant"
+            href="#servicios"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Servicios
+          </a>
+          <a
+            className="font-semibold text-on-surface-variant"
+            href="#nosotros"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Nosotros
+          </a>
+          <a
+            className="font-semibold text-on-surface-variant"
+            href="#contacto"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Contacto
+          </a>
+        </nav>
+      )}
     </header>
   );
 };
