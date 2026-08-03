@@ -1,95 +1,124 @@
-import React, { useState } from "react";
-import logo from "../../assets/logo.png";
+import React, { useState, useEffect } from "react";
+import logo from "../../assets/logo_landingPage.png";
+import Container from "../ui/Container";
+
+const navLinks = [
+  { label: "Inicio", href: "#", action: "top" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Contacto", href: "#contacto" },
+];
 
 const Menu = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const irArriba = () => {
-    window.scrollTo(0, 0);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const irArriba = (e) => {
+    if (e) e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setMenuAbierto(false);
   };
 
+  const handleNavClick = (link) => {
+    if (link.action === "top") {
+      irArriba();
+    } else {
+      setMenuAbierto(false);
+    }
+  };
+
   return (
-    <header className="w-full top-0 sticky z-50 bg-surface shadow-sm transition-all duration-200">
-      <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-[1120px] mx-auto">
+    <header
+      className="pointer-events-none fixed inset-x-0 top-0 z-[100] pt-4 px-4 md:px-6 transition-all duration-300"
+      role="banner"
+    >
+      <Container className="pointer-events-auto">
         <div
-          className="flex items-center gap-2 cursor-pointer transition-all duration-200"
-          onClick={irArriba}
+          className={`flex items-center justify-between rounded-full border border-outline-variant/50 px-6 py-3 backdrop-blur-md transition-all duration-300 md:px-8 ${
+            scrolled
+              ? "bg-white/95 shadow-md shadow-black/5"
+              : "bg-white/80 shadow-sm"
+          }`}
         >
-          <img
-            src={logo}
-            alt="logo landing page"
-            className="w-auto h-12 object-contain"
-          />
-        </div>
-
-        <nav className="hidden md:flex gap-8">
-          <a
-            className="font-semibold text-primary border-b-2 border-primary pb-1"
-            href="#"
+          <div
+            className="flex cursor-pointer items-center gap-2 transition-opacity duration-200 hover:opacity-80"
             onClick={irArriba}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && irArriba(e)}
+            aria-label="Ir al inicio"
           >
-            Inicio
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant hover:text-secondary transition-colors"
-            href="#servicios"
-          >
-            Servicios
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant hover:text-secondary transition-colors"
-            href="#nosotros"
-          >
-            Nosotros
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant hover:text-secondary transition-colors"
-            href="#contacto"
-          >
-            Contacto
-          </a>
-        </nav>
+            <img
+              src={logo}
+              alt="logo landing page"
+              className="h-9 w-auto object-contain md:h-10"
+            />
+          </div>
 
-        <button
-          className="md:hidden text-primary"
-          onClick={() => setMenuAbierto(!menuAbierto)}
-          aria-label="Abrir menú"
-        >
-          <span className="material-symbols-outlined text-3xl">
-            {menuAbierto ? "close" : "menu"}
-          </span>
-        </button>
-      </div>
+          <nav
+            className="hidden items-center gap-1 md:flex"
+            aria-label="Navegación principal"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-200 ${
+                  link.action === "top"
+                    ? "text-primary"
+                    : "text-on-surface-variant hover:bg-surface-container-low hover:text-on-background"
+                }`}
+                href={link.href}
+                onClick={() => handleNavClick(link)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-      {/* Menú mobile */}
+          <button
+            type="button"
+            className="cursor-pointer rounded-full p-2 text-primary transition-colors hover:bg-surface-container-low md:hidden flex items-center justify-center"
+            onClick={() => setMenuAbierto(!menuAbierto)}
+            aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={menuAbierto}
+          >
+            <span className="material-symbols-outlined text-2xl leading-none">
+              {menuAbierto ? "close" : "menu"}
+            </span>
+          </button>
+        </div>
+      </Container>
+
+      {/* Menú Móvil */}
       {menuAbierto && (
-        <nav className="md:hidden flex flex-col items-center gap-4 bg-surface px-6 py-4 shadow-sm">
-          <a className="font-semibold text-primary" href="#" onClick={irArriba}>
-            Inicio
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant"
-            href="#servicios"
-            onClick={() => setMenuAbierto(false)}
+        <Container className="pointer-events-auto mt-2 md:hidden relative z-[99]">
+          <nav
+            className="flex flex-col gap-1 rounded-2xl border border-outline-variant/50 bg-white/95 p-4 shadow-lg backdrop-blur-md"
+            aria-label="Navegación móvil"
           >
-            Servicios
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant"
-            href="#nosotros"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Nosotros
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant"
-            href="#contacto"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Contacto
-          </a>
-        </nav>
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                className={`rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                  link.action === "top"
+                    ? "bg-primary/5 text-primary"
+                    : "text-on-surface-variant hover:bg-surface-container-low"
+                }`}
+                href={link.href}
+                onClick={() => handleNavClick(link)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </Container>
       )}
     </header>
   );

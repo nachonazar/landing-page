@@ -2,62 +2,66 @@ import React from "react";
 import Servicios from "./Servicios";
 import Nosotros from "./Nosotros";
 import Contacto from "../shared/Contacto";
+import Container from "../ui/Container";
+import Badge from "../ui/Badge";
+import Button from "../ui/Button";
+import ScrollReveal from "../ui/ScrollReveal";
 
 const Inicio = () => {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-20 px-4 md:px-0">
-        <div className="max-w-[1120px] mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left z-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary font-semibold text-sm mb-6">
-              Fonoaudiología de Vanguardia
-            </span>
-            <h1 className="text-3xl md:text-4xl font-bold text-on-background mb-6 leading-tight">
-              Mejora tu comunicación, <br className="hidden md:block" />{" "}
-              <span className="text-primary">transforma tu vida</span>
-            </h1>
-            <p className="text-lg text-on-surface-variant mb-10 max-w-xl mx-auto md:mx-0">
-              Acompañamos tu desarrollo y bienestar mediante terapias
-              personalizadas, con un enfoque clínico humano.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              {/* Botón 1: Agendar por WhatsApp (Antes Reservar Cita) */}
-              <a
-                href="#contacto"
-                className="inline-flex justify-center items-center gap-2 bg-teal-700 text-white px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:bg-teal-800 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]"
-              >
-                <span className="material-symbols-outlined">chat</span>
-                Agendar por WhatsApp
-              </a>
-              
-              {/* Botón 2: Ver Servicios (Antes Ver Programas) */}
-              <a
-                href="#servicios"
-                className="inline-flex justify-center items-center gap-2 border-2 border-slate-900 text-slate-900 px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:bg-slate-50 transition-all duration-300"
-              >
-                Ver Servicios
-              </a>
-            </div>
-          </div>
-          <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-[500px]">
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl -rotate-3"></div>
-            <div className="absolute inset-0 bg-secondary/5 rounded-3xl rotate-2"></div>
-            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-lg">
-              <img
-                className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
-                alt="Fonoaudióloga trabajando con paciente"
-              />
-            </div>
-          </div>
+    <>
+      <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 lg:pb-28 gradient-mesh">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-32 right-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute -bottom-32 left-0 h-[400px] w-[400px] rounded-full bg-secondary/5 blur-3xl" />
         </div>
+
+        <Container className="relative">
+          <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
+            <ScrollReveal className="z-10 flex-1 text-center lg:text-left">
+              <Badge className="mb-6">Fonoaudiología de Vanguardia</Badge>
+
+              <h1 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background mb-6 leading-[1.1] tracking-tight">
+                Mejora tu comunicación,{" "}
+                <span className="text-gradient-primary">transforma tu vida</span>
+              </h1>
+
+              <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto leading-relaxed lg:mx-0">
+                Acompañamos tu desarrollo y bienestar mediante terapias
+                personalizadas, con un enfoque clínico humano.
+              </p>
+
+              <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4 lg:justify-start">
+                <Button as="a" href="#contacto" variant="primary">
+                  Agendar Consulta
+                </Button>
+
+                <Button as="a" href="#servicios" variant="secondary">
+                  Ver Servicios
+                </Button>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="relative w-full flex-1 lg:max-w-[520px]" delay={150}>
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-sm" />
+              <div className="relative overflow-hidden rounded-2xl border border-outline-variant/50 pro-shadow-lg">
+                <div className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-square">
+                  <img
+                    className="h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
+                    alt="Fonoaudióloga trabajando con paciente"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </Container>
       </section>
 
       <Servicios />
       <Nosotros />
       <Contacto />
-    </main>
+    </>
   );
 };
 

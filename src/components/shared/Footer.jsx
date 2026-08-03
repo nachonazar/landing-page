@@ -1,5 +1,13 @@
 import React from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo_landingPage.png";
+import Container from "../ui/Container";
+import ScrollReveal from "../ui/ScrollReveal";
+
+const footerLinks = [
+  { label: "Servicios", href: "#servicios" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Contacto", href: "#contacto" },
+];
 
 const Footer = () => {
   const irArriba = () => {
@@ -7,49 +15,54 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black">
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start px-6 md:px-10 pt-16 pb-8 max-w-[1120px] mx-auto gap-8">
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <div
-            className="flex items-center gap-2 cursor-pointer"
-            onClick={irArriba}
-          >
-            <img
-              src={logo}
-              alt="logo landing page"
-              className="w-auto h-12 object-contain invert"
-            />
-          </div>
-          <p className="text-on-surface-variant text-center md:text-left max-w-xs">
-            Fonoaudiología especializada para todas las etapas de la vida.
-          </p>
-        </div>
-        <div className="flex flex-wrap justify-center gap-8">
-          <a
-            className="font-semibold text-on-surface-variant hover:text-secondary transition-all"
-            href="#servicios"
-          >
-            Servicios
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant hover:text-secondary transition-all"
-            href="#nosotros"
-          >
-            Nosotros
-          </a>
-          <a
-            className="font-semibold text-on-surface-variant hover:text-secondary transition-all"
-            href="#contacto"
-          >
-            Contacto
-          </a>
-        </div>
-      </div>
+    <footer className="border-t border-inverse-on-surface/10 bg-inverse-surface">
+      <Container className="py-14 md:py-16">
+        <ScrollReveal>
+          <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-between">
+            <div className="flex max-w-sm flex-col items-center gap-4 md:items-start">
+              <div
+                className="flex cursor-pointer items-center gap-2 transition-opacity duration-200 hover:opacity-80"
+                onClick={irArriba}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && irArriba()}
+                aria-label="Ir al inicio"
+              >
+                <img
+                  src={logo}
+                  alt="logo landing page"
+                  className="h-11 w-auto object-contain invert"
+                />
+              </div>
+              <p className="text-center font-body-md text-body-md leading-relaxed text-inverse-on-surface/60 md:text-left">
+                Fonoaudiología especializada para todas las etapas de la vida.
+              </p>
+            </div>
 
-      <div className="border-t border-white/10 max-w-[1120px] mx-auto">
-        <div className="text-xs text-on-surface-variant text-center px-6 md:px-10 py-6">
-          © 2026 Voz &amp; Vida Fonoaudiología. Todos los derechos reservados.
-        </div>
+            <nav
+              className="flex flex-wrap justify-center gap-x-8 gap-y-3"
+              aria-label="Enlaces del pie de página"
+            >
+              {footerLinks.map((link) => (
+                <a
+                  key={link.label}
+                  className="cursor-pointer font-label-md text-label-md text-inverse-on-surface/70 transition-colors duration-200 hover:text-inverse-on-surface"
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </ScrollReveal>
+      </Container>
+
+      <div className="border-t border-inverse-on-surface/10">
+        <Container className="py-6">
+          <p className="text-center font-caption text-caption text-inverse-on-surface/50">
+            © 2026 Voz &amp; Vida Fonoaudiología. Todos los derechos reservados.
+          </p>
+        </Container>
       </div>
     </footer>
   );

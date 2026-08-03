@@ -6,11 +6,11 @@ import Footer from "./components/shared/Footer";
 function App() {
   return (
     <>
-      <Menu></Menu>
+      <Menu />
       <main>
-        <Inicio></Inicio>
+        <Inicio />
       </main>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

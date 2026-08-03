@@ -1,41 +1,44 @@
 import React from "react";
+import Container from "../ui/Container";
+import Badge from "../ui/Badge";
+import ScrollReveal from "../ui/ScrollReveal";
 
 const Nosotros = () => {
   return (
     <section
       id="nosotros"
-      className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap scroll-mt-20"
+      className="section-padding scroll-mt-28 bg-surface-container-low"
     >
-      {/* Hero Bio Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-section-gap items-center mb-section-gap">
-        <div className="lg:col-span-5 relative">
-          <div className="aspect-[4/5] rounded-xl overflow-hidden ambient-shadow bg-surface-container">
-            <img
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
-              alt="Retrato profesional de fonoaudióloga en su consultorio"
-            />
-          </div>
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-container opacity-20 rounded-full blur-3xl -z-10"></div>
-        </div>
-        <div className="lg:col-span-7 space-y-gutter">
-          <div className="inline-block px-4 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-md text-label-md">
-            Fonoaudióloga Clínica
-          </div>
-          <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background leading-tight">
-            Hola, soy la{" "}
-            <span className="text-primary">
-              Lic. en Fonoaudiología Natalia Rodriguez
-            </span>
-          </h2>
-          <div className="space-y-4 text-on-surface-variant font-body-lg text-body-lg leading-relaxed">
-            <p>
+      <Container>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <ScrollReveal className="relative lg:col-span-5">
+            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 blur-sm" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-outline-variant/50 pro-shadow-lg bg-surface-container">
+              <img
+                className="h-full w-full object-cover"
+                src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
+                alt="Retrato profesional de fonoaudióloga en su consultorio"
+              />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="space-y-6 lg:col-span-7" delay={120}>
+            <Badge>Fonoaudióloga Clínica</Badge>
+
+            <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background leading-tight tracking-tight">
+              Hola, soy la{" "}
+              <span className="text-gradient-primary">
+                Lic. en Fonoaudiología Natalia Rodriguez
+              </span>
+            </h2>
+
+            <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
               Dedicada a la rehabilitación del lenguaje y la comunicación, para
               cada paciente con necesidades diferentes.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
