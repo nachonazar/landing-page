@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo_landingPage.png";
+import logo from "../../assets/logo_landingPage.webp";
 import Container from "../ui/Container";
 import ScrollReveal from "../ui/ScrollReveal";
 
@@ -32,6 +32,9 @@ const Footer = () => {
                   src={logo}
                   alt="logo landing page"
                   className="h-11 w-auto object-contain invert"
+                  width="400"
+                  height="102"
+                  loading="lazy"
                 />
               </div>
               <p className="text-center font-body-md text-body-md leading-relaxed text-inverse-on-surface/60 md:text-left">

@@ -18,6 +18,9 @@ const Nosotros = () => {
                 className="h-full w-full object-cover"
                 src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
                 alt="Retrato profesional de fonoaudióloga en su consultorio"
+                width="800"
+                height="1000"
+                loading="lazy"
               />
             </div>
           </ScrollReveal>

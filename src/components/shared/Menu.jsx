@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/logo_landingPage.png";
+import logo from "../../assets/logo_landingPage.webp";
 import Container from "../ui/Container";
 
 const navLinks = [
@@ -59,6 +59,9 @@ const Menu = () => {
               src={logo}
               alt="logo landing page"
               className="h-9 w-auto object-contain md:h-10"
+              width="400"
+              height="102"
+              fetchpriority="high"
             />
           </div>
 
