@@ -17,6 +17,12 @@ const Nosotros = () => {
               <img
                 className="h-full w-full object-cover"
                 src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
+                srcSet="
+                  https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=400 400w,
+                  https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800 800w,
+                  https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=1200 1200w
+                "
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 alt="Retrato profesional de fonoaudióloga en su consultorio"
                 width="800"
                 height="1000"

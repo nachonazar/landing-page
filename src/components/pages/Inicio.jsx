@@ -55,6 +55,12 @@ const Inicio = () => {
                   <img
                     className="h-full w-full object-cover"
                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
+                    srcSet="
+                      https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=400 400w,
+                      https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800 800w,
+                      https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200 1200w
+                    "
+                    sizes="(max-width: 1024px) 100vw, 520px"
                     alt="Fonoaudióloga trabajando con paciente"
                     width="800"
                     height="1000"
