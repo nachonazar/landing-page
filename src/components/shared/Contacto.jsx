@@ -6,6 +6,7 @@ import Badge from "../ui/Badge";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 import ScrollReveal from "../ui/ScrollReveal";
+import { WHATSAPP_LINK, WHATSAPP_NUMBER } from "../../utils/constants.js";
 
 const inputBase =
   "w-full rounded-xl border bg-surface-container-lowest px-4 py-3 font-body-md text-body-md text-on-background placeholder:text-on-surface-variant/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:border-transparent";
@@ -73,7 +74,7 @@ const Contacto = () => {
               <div className="flex flex-col items-center gap-4">
                 <Button
                   as="a"
-                  href="https://wa.me/5493816916596"
+                  href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="whatsapp"
@@ -82,13 +83,13 @@ const Contacto = () => {
                 </Button>
 
                 <a
-                  href="tel:+5493816916596"
+                  href={`tel:${WHATSAPP_NUMBER.replace(/\s+/g, "")}`}
                   className="inline-flex cursor-pointer items-center gap-2 font-body-md text-body-md text-inverse-on-surface/55 transition-colors duration-200 hover:text-inverse-on-surface/80"
                 >
                   <span className="material-symbols-outlined text-[18px]">
                     call
                   </span>
-                  +54 9 381 691 6596
+                  {WHATSAPP_NUMBER}
                 </a>
               </div>
             </div>
