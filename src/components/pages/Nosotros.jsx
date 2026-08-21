@@ -3,6 +3,10 @@ import Container from "../ui/Container";
 import Badge from "../ui/Badge";
 import ScrollReveal from "../ui/ScrollReveal";
 
+import fotoNosotros400 from "../../assets/nosotros-400.webp";
+import fotoNosotros800 from "../../assets/nosotros-800.webp";
+import fotoNosotros1200 from "../../assets/nosotros-1200.webp";
+
 const Nosotros = () => {
   return (
     <section
@@ -16,12 +20,12 @@ const Nosotros = () => {
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-outline-variant/50 pro-shadow-lg bg-surface-container">
               <img
                 className="h-full w-full object-cover"
-                src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
-                srcSet="
-                  https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=400 400w,
-                  https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800 800w,
-                  https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=1200 1200w
-                "
+                src={fotoNosotros800}
+                srcSet={`
+                  ${fotoNosotros400} 400w,
+                  ${fotoNosotros800} 800w,
+                  ${fotoNosotros1200} 1200w
+                `}
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 alt="Retrato profesional de fonoaudióloga en su consultorio"
                 width="800"
