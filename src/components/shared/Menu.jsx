@@ -47,23 +47,20 @@ const Menu = () => {
               : "bg-white/80 shadow-sm"
           }`}
         >
-          <div
-            className="flex cursor-pointer items-center gap-2 transition-opacity duration-200 hover:opacity-80"
+          <button
+            className="flex cursor-pointer items-center gap-2 transition-opacity duration-200 hover:opacity-80 appearance-none bg-transparent border-none p-0"
             onClick={irArriba}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && irArriba(e)}
             aria-label="Ir al inicio"
           >
             <img
               src={logo}
-              alt="logo landing page"
+              alt="Voz & Vida Fonoaudiología"
               className="h-9 w-auto object-contain md:h-10"
               width="400"
               height="102"
               fetchpriority="high"
             />
-          </div>
+          </button>
 
           <nav
             className="hidden items-center gap-1 md:flex"

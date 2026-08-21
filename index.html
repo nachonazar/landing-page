@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" class="light">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -7,18 +7,42 @@
 
     <meta
       name="description"
-      content="Fonoaudiología especializada para todas las etapas de la vida."
+      content="Fonoaudiología especializada para todas las etapas de la vida en Tucumán."
     />
     <meta name="author" content="Nazar Ignacio" />
-    <title>Natalia Rodríguez — Fonoaudióloga</title>
+    <title>Natalia Rodríguez — Fonoaudióloga en Tucumán</title>
 
-    <meta property="og:title" content="Natalia Rodríguez — Fonoaudióloga" />
+    <link rel="canonical" href="https://landingfono.netlify.app/" />
+
+    <meta property="og:site_name" content="Voz & Vida Fonoaudiología" />
+    <meta property="og:url" content="https://landingfono.netlify.app/" />
+    <meta
+      property="og:title"
+      content="Natalia Rodríguez — Fonoaudióloga en Tucumán"
+    />
     <meta
       property="og:description"
       content="Fonoaudiología especializada para todas las etapas de la vida."
     />
-    <meta property="og:image" content="/preview.png" />
+    <meta
+      property="og:image"
+      content="https://landingfono.netlify.app/preview.png"
+    />
     <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Natalia Rodríguez — Fonoaudióloga en Tucumán"
+    />
+    <meta
+      name="twitter:description"
+      content="Fonoaudiología especializada para todas las etapas de la vida."
+    />
+    <meta
+      name="twitter:image"
+      content="https://landingfono.netlify.app/preview.png"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,22 +50,45 @@
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=call,check_circle,child_care,close,elderly,language,menu,record_voice_over,restaurant,schedule&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=call,check_circle,child_care,close,elderly,language,location_on,menu,record_voice_over,restaurant,schedule&display=swap"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=call,check_circle,child_care,close,elderly,language,menu,record_voice_over,restaurant,schedule&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=call,check_circle,child_care,close,elderly,language,location_on,menu,record_voice_over,restaurant,schedule&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media = 'all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=call,check_circle,child_care,close,elderly,language,menu,record_voice_over,restaurant,schedule&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=call,check_circle,child_care,close,elderly,language,location_on,menu,record_voice_over,restaurant,schedule&display=swap"
         rel="stylesheet"
       />
     </noscript>
 
-    <link rel="modulepreload" href="/src/main.jsx" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Voz & Vida Fonoaudiología",
+        "image": "https://landingfono.netlify.app/preview.png",
+        "@id": "https://landingfono.netlify.app/",
+        "url": "https://landingfono.netlify.app/",
+        "telephone": "+5493816016506",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Consultorio",
+          "addressLocality": "San Miguel de Tucumán",
+          "addressRegion": "Tucumán",
+          "addressCountry": "AR"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "16:00",
+          "closes": "21:00"
+        }
+      }
+    </script>
   </head>
   <body class="selection:bg-primary-container selection:text-white">
     <div id="root"></div>

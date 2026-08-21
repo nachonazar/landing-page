@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://landingfono.netlify.app/sitemap.xml

@@ -6,7 +6,7 @@ import Badge from "../ui/Badge";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 import ScrollReveal from "../ui/ScrollReveal";
-import { WHATSAPP_LINK, WHATSAPP_NUMBER } from "../../utils/constants.js";
+import { WHATSAPP_LINK, WHATSAPP_NUMBER } from "../../utils/constants";
 
 const inputBase =
   "w-full rounded-xl border bg-surface-container-lowest px-4 py-3 font-body-md text-body-md text-on-background placeholder:text-on-surface-variant/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:border-transparent";
@@ -23,6 +23,8 @@ const Contacto = () => {
   const [estado, setEstado] = useState(null);
 
   const onSubmit = async (form) => {
+    if (form.botcheck) return;
+
     setEnviando(true);
     setEstado(null);
     try {
@@ -104,6 +106,14 @@ const Contacto = () => {
               </h3>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <input
+                  type="text"
+                  style={{ display: "none" }}
+                  tabIndex="-1"
+                  autoComplete="off"
+                  {...register("botcheck")}
+                />
+
                 <div className="space-y-2">
                   <label
                     className="block font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
@@ -116,6 +126,10 @@ const Contacto = () => {
                     type="text"
                     placeholder="Tu nombre completo"
                     className={fieldClass(errors.from_name)}
+                    aria-invalid={errors.from_name ? "true" : "false"}
+                    aria-describedby={
+                      errors.from_name ? "name-error" : undefined
+                    }
                     {...register("from_name", {
                       required: "El nombre es un dato obligatorio",
                       minLength: {
@@ -130,7 +144,11 @@ const Contacto = () => {
                     })}
                   />
                   {errors.from_name && (
-                    <span className="font-caption text-caption text-error mt-1 block">
+                    <span
+                      id="name-error"
+                      role="alert"
+                      className="font-caption text-caption text-error mt-1 block"
+                    >
                       {errors.from_name.message}
                     </span>
                   )}
@@ -148,6 +166,10 @@ const Contacto = () => {
                     type="email"
                     placeholder="tu@email.com"
                     className={fieldClass(errors.from_email)}
+                    aria-invalid={errors.from_email ? "true" : "false"}
+                    aria-describedby={
+                      errors.from_email ? "email-error" : undefined
+                    }
                     {...register("from_email", {
                       required: "El email es obligatorio",
                       pattern: {
@@ -157,7 +179,11 @@ const Contacto = () => {
                     })}
                   />
                   {errors.from_email && (
-                    <span className="font-caption text-caption text-error mt-1 block">
+                    <span
+                      id="email-error"
+                      role="alert"
+                      className="font-caption text-caption text-error mt-1 block"
+                    >
                       {errors.from_email.message}
                     </span>
                   )}
@@ -175,6 +201,8 @@ const Contacto = () => {
                     type="tel"
                     placeholder="Ej: +54 9 381 123 4567"
                     className={fieldClass(errors.phone)}
+                    aria-invalid={errors.phone ? "true" : "false"}
+                    aria-describedby={errors.phone ? "phone-error" : undefined}
                     {...register("phone", {
                       required: "El teléfono es obligatorio",
                       minLength: {
@@ -189,7 +217,11 @@ const Contacto = () => {
                     })}
                   />
                   {errors.phone && (
-                    <span className="font-caption text-caption text-error mt-1 block">
+                    <span
+                      id="phone-error"
+                      role="alert"
+                      className="font-caption text-caption text-error mt-1 block"
+                    >
                       {errors.phone.message}
                     </span>
                   )}
@@ -207,6 +239,10 @@ const Contacto = () => {
                     rows="4"
                     placeholder="¿En qué podemos ayudarte?"
                     className={`${fieldClass(errors.message)} resize-none`}
+                    aria-invalid={errors.message ? "true" : "false"}
+                    aria-describedby={
+                      errors.message ? "message-error" : undefined
+                    }
                     {...register("message", {
                       required: "El mensaje es obligatorio",
                       minLength: {
@@ -220,7 +256,11 @@ const Contacto = () => {
                     })}
                   ></textarea>
                   {errors.message && (
-                    <span className="font-caption text-caption text-error mt-1 block">
+                    <span
+                      id="message-error"
+                      role="alert"
+                      className="font-caption text-caption text-error mt-1 block"
+                    >
                       {errors.message.message}
                     </span>
                   )}
@@ -251,7 +291,7 @@ const Contacto = () => {
           </ScrollReveal>
 
           <ScrollReveal className="order-1 lg:order-2" delay={200}>
-            <Card className="h-full">
+            <Card className="h-full flex flex-col gap-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <span className="material-symbols-outlined text-[20px]">
