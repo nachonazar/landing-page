@@ -58,7 +58,7 @@ const Menu = () => {
               className="h-9 w-auto object-contain md:h-10"
               width="400"
               height="102"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </button>
 

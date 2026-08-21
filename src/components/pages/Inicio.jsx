@@ -64,7 +64,7 @@ const Inicio = () => {
                     alt="Fonoaudióloga trabajando con paciente"
                     width="800"
                     height="1000"
-                    fetchpriority="high"
+                    fetchPriority="high"
                   />
                 </div>
               </div>
