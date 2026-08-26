@@ -5,6 +5,9 @@ import Container from "../ui/Container";
 import Badge from "../ui/Badge";
 import Button from "../ui/Button";
 import ScrollReveal from "../ui/ScrollReveal";
+import hero400 from "../../assets/hero-400.webp";
+import hero800 from "../../assets/hero-800.webp";
+import hero1200 from "../../assets/hero-1200.webp";
 
 const Contacto = lazy(() => import("../shared/Contacto"));
 
@@ -54,14 +57,14 @@ const Inicio = () => {
                 <div className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-square">
                   <img
                     className="h-full w-full object-cover"
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
-                    srcSet="
-                      https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=400 400w,
-                      https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800 800w,
-                      https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200 1200w
-                    "
+                    src={hero800}
+                    srcSet={`
+                      ${hero400} 400w,
+                      ${hero800} 800w,
+                      ${hero1200} 1200w
+                    `}
                     sizes="(max-width: 1024px) 100vw, 520px"
-                    alt="Fonoaudióloga trabajando con paciente"
+                    alt="Fonoaudióloga trabajando de forma didáctica con un niño"
                     width="800"
                     height="1000"
                     fetchPriority="high"
