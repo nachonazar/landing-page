@@ -69,8 +69,8 @@ const Contacto = () => {
               </h2>
 
               <p className="font-body-lg text-body-lg text-inverse-on-surface/70 mb-10 leading-relaxed">
-                Nuestros especialistas están disponibles para brindarte la
-                orientación que necesitas. Agenda tu valoración inicial ahora.
+                Estoy disponible para brindarte la orientación que necesitas.
+                Agenda tu valoración inicial ahora.
               </p>
 
               <div className="flex flex-col items-center gap-4">
@@ -102,7 +102,7 @@ const Contacto = () => {
           <ScrollReveal className="order-2 h-full lg:order-1" delay={100}>
             <Card className="h-full">
               <h3 className="font-headline-md text-headline-sm text-on-background mb-6">
-                Envíanos un mensaje
+                Envíame un mensaje
               </h3>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -237,7 +237,7 @@ const Contacto = () => {
                   <textarea
                     id="message"
                     rows="4"
-                    placeholder="¿En qué podemos ayudarte?"
+                    placeholder="¿En qué puedo ayudarte?"
                     className={`${fieldClass(errors.message)} resize-none`}
                     aria-invalid={errors.message ? "true" : "false"}
                     aria-describedby={
@@ -268,12 +268,12 @@ const Contacto = () => {
 
                 {estado === "ok" && (
                   <p className="rounded-xl border border-secondary/30 bg-secondary-container/50 p-4 font-body-md text-body-md text-on-secondary-container">
-                    ✅ Mensaje enviado correctamente. Te contactaremos pronto.
+                    ✅ Mensaje enviado correctamente. Te contactare pronto.
                   </p>
                 )}
                 {estado === "error" && (
                   <p className="rounded-xl border border-error/30 bg-error-container p-4 font-body-md text-body-md text-on-error-container">
-                    ❌ Ocurrió un error. Intenta de nuevo o contáctanos por
+                    ❌ Ocurrió un error. Intenta de nuevo o contáctame por
                     WhatsApp.
                   </p>
                 )}

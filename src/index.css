@@ -58,14 +58,15 @@
   --color-inverse-on-surface: #f8fafc;
 
   /* Typography */
-  --font-caption: "Atkinson Hyperlegible Next", sans-serif;
-  --font-label-md: "Atkinson Hyperlegible Next", sans-serif;
-  --font-body-md: "Atkinson Hyperlegible Next", sans-serif;
-  --font-body-lg: "Atkinson Hyperlegible Next", sans-serif;
-  --font-headline-md: "Plus Jakarta Sans", sans-serif;
-  --font-headline-lg: "Plus Jakarta Sans", sans-serif;
-  --font-headline-xl: "Plus Jakarta Sans", sans-serif;
-  --font-headline-xl-mobile: "Plus Jakarta Sans", sans-serif;
+  --font-caption: "Satoshi", sans-serif;
+  --font-label-md: "Satoshi", sans-serif;
+  --font-body-md: "Satoshi", sans-serif;
+  --font-body-lg: "Satoshi", sans-serif;
+
+  --font-headline-md: "Sensible", serif;
+  --font-headline-lg: "Sensible", serif;
+  --font-headline-xl: "Sensible", serif;
+  --font-headline-xl-mobile: "Sensible", serif;
 
   --text-caption: 12px;
   --text-caption--line-height: 16px;

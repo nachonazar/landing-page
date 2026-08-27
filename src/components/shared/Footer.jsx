@@ -5,7 +5,7 @@ import ScrollReveal from "../ui/ScrollReveal";
 
 const footerLinks = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Sobre mí", href: "#sobremi" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -36,7 +36,7 @@ const Footer = () => {
               </button>
 
               <p className="text-center font-body-md text-body-md leading-relaxed text-inverse-on-surface/80 md:text-left">
-                Fonoaudiología especializada para todas las etapas de la vida.
+                Fonoaudiologa especializada para todas las etapas de la vida.
               </p>
 
               <div className="flex items-center gap-4 pt-1">
@@ -104,8 +104,8 @@ const Footer = () => {
       <div className="border-t border-inverse-on-surface/20">
         <Container className="py-6">
           <p className="text-center font-caption text-caption text-inverse-on-surface/80">
-            © {new Date().getFullYear()} Voz &amp; Vida Fonoaudiología. Todos
-            los derechos reservados.
+            © {new Date().getFullYear()} Lic. Natalia Rodríguez. Todos los
+            derechos reservados.
           </p>
         </Container>
       </div>

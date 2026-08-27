@@ -23,7 +23,7 @@ const Inicio = () => {
         <Container className="relative">
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
             <ScrollReveal className="z-10 flex-1 text-center lg:text-left">
-              <Badge className="mb-6">Fonoaudiología de Vanguardia</Badge>
+              <Badge className="mb-6">Fonoaudiologa</Badge>
 
               <h1 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background mb-6 leading-[1.1] tracking-tight">
                 Mejora tu comunicación,{" "}
@@ -33,7 +33,7 @@ const Inicio = () => {
               </h1>
 
               <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto leading-relaxed lg:mx-0">
-                Acompañamos tu desarrollo y bienestar mediante terapias
+                Acompaño tu desarrollo y bienestar mediante terapias
                 personalizadas, con un enfoque clínico humano.
               </p>
 

@@ -10,7 +10,7 @@ import fotoNosotros1200 from "../../assets/nosotros-1200.webp";
 const Nosotros = () => {
   return (
     <section
-      id="nosotros"
+      id="sobremi"
       className="section-padding scroll-mt-28 bg-surface-container-low"
     >
       <Container>
@@ -36,7 +36,7 @@ const Nosotros = () => {
           </ScrollReveal>
 
           <ScrollReveal className="space-y-6 lg:col-span-7" delay={120}>
-            <Badge>Fonoaudióloga Clínica</Badge>
+            <Badge>Fonoaudióloga</Badge>
 
             <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background leading-tight tracking-tight">
               Hola, soy la{" "}

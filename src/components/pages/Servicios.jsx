@@ -9,7 +9,7 @@ const servicios = [
     icon: "child_care",
     title: "Terapia de Lenguaje Infantil",
     description:
-      "Especializados en estimulación temprana y trastornos del desarrollo. Utilizamos el juego como herramienta terapéutica.",
+      "Especialización en estimulación temprana y trastornos del desarrollo. Utilizo el juego como herramienta terapéutica.",
     items: [
       { icon: "check_circle", text: "Estimulación temprana (0-3 años)" },
       { icon: "check_circle", text: "Dificultades en pronunciación" },
@@ -80,7 +80,7 @@ const Servicios = () => {
           <SectionHeader
             badge="Cuidado Especializado"
             title="Servicios de Fonoaudiología"
-            description="Brindamos soluciones terapéuticas personalizadas para cada etapa de la vida, garantizando un acompañamiento integral."
+            description="Brindo soluciones terapéuticas personalizadas para cada etapa de la vida, garantizando un acompañamiento integral."
           />
         </ScrollReveal>
 

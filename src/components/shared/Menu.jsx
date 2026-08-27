@@ -5,7 +5,7 @@ import Container from "../ui/Container";
 const navLinks = [
   { label: "Inicio", href: "#", action: "top" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Sobre mí", href: "#sobremi" },
   { label: "Contacto", href: "#contacto" },
 ];
 
