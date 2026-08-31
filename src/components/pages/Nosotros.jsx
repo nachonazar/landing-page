@@ -41,7 +41,7 @@ const Nosotros = () => {
             <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background leading-tight tracking-tight">
               Hola, soy la{" "}
               <span className="text-gradient-primary">
-                Lic. en Fonoaudiología Natalia Rodriguez
+                Lic. en Fonoaudiología Natalia Rodríguez
               </span>
             </h2>
 

@@ -27,7 +27,7 @@ const Footer = () => {
               >
                 <img
                   src={logo}
-                  alt="Voz & Vida Fonoaudiología"
+                  alt="Natalia Rodríguez"
                   className="h-11 w-auto object-contain invert"
                   width="400"
                   height="102"
