@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Premium Healthcare SaaS Palette */
   --color-primary: #0e7490;
   --color-on-primary: #ffffff;
   --color-primary-container: #0891b2;
@@ -57,7 +56,6 @@
   --color-inverse-surface: #0f172a;
   --color-inverse-on-surface: #f8fafc;
 
-  /* Typography */
   --font-caption: "Satoshi", sans-serif;
   --font-label-md: "Satoshi", sans-serif;
   --font-body-md: "Satoshi", sans-serif;
@@ -109,7 +107,6 @@
   --text-headline-xl-mobile--letter-spacing: -0.025em;
   --text-headline-xl-mobile--font-weight: 800;
 
-  /* Spacing */
   --spacing-unit: 8px;
   --spacing-section-gap: 96px;
   --spacing-margin-mobile: 20px;
@@ -204,4 +201,96 @@ body {
 ::selection {
   background-color: var(--color-primary-container);
   color: white;
+}
+
+:root {
+  --chat--color-primary: #0e7490 !important;
+  --chat--color-secondary: #059669 !important;
+  --chat--color-primary-shade-50: #0891b2 !important;
+  --chat--color-primary-shade-100: #155e75 !important;
+  --chat--font-family: "Satoshi", sans-serif !important;
+  --chat--window--border-radius: 16px !important;
+}
+
+.chat-window {
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1) !important;
+}
+
+.chat-window,
+div[class*="chat-toggle"],
+button[class*="chat-toggle"],
+div[class*="toggle"],
+button[class*="toggle"] {
+  bottom: 48px !important;
+  right: 32px !important;
+}
+
+button[class*="chat-toggle"],
+button[class*="toggle"],
+div[class*="toggle"] {
+  background-color: #0e7490 !important;
+}
+
+@media (max-width: 768px) {
+
+  .chat-window,
+  div[class*="chat-toggle"],
+  button[class*="chat-toggle"],
+  div[class*="toggle"],
+  button[class*="toggle"] {
+    bottom: 28px !important;
+    right: 24px !important;
+  }
+}
+
+.chat-window [class*="footer"],
+.chat-window [class*="input"] {
+  border-top-color: #e2e8f0 !important;
+  box-shadow: none !important;
+}
+
+.chat-window textarea {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  margin-left: 2px !important;
+  width: calc(100% - 4px) !important;
+}
+
+.chat-window textarea::-webkit-scrollbar {
+  display: none !important;
+}
+
+.chat-window textarea:focus {
+  border-color: #0e7490 !important;
+  box-shadow: none !important;
+}
+
+.chat-window a {
+  color: #059669 !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.chat-window a:hover {
+  color: #0e7490 !important;
+}
+.chat-window *::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.chat-window *::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.chat-window *::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1 !important;
+  border-radius: 10px !important;
+}
+
+.chat-window *::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8 !important;
 }

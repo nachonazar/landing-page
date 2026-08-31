@@ -99,5 +99,37 @@
   >
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css"
+      rel="stylesheet"
+    />
+    <script type="module">
+      import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js";
+
+      createChat({
+        webhookUrl:
+          "https://nachonazar.app.n8n.cloud/webhook/74fd8616-da7f-48aa-af15-e83f36412fb8/chat",
+        initialMessages: [
+          "¡Hola! 👋 Soy el asistente virtual del consultorio. ¿En qué te puedo ayudar hoy?",
+        ],
+        i18n: {
+          en: {
+            title: "Asistente Virtual",
+            subtitle: "Consultorio de la Lic. Natalia Rodríguez",
+            inputPlaceholder: "Escribe tu pregunta...",
+            getStartedButtonText: "Iniciar chat",
+          },
+        },
+      });
+    </script>
+    <script>
+      document.addEventListener("click", function (event) {
+        const link = event.target.closest(".chat-window a");
+        if (link) {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+    </script>
   </body>
 </html>
