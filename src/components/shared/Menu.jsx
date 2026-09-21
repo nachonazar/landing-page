@@ -54,7 +54,7 @@ const Menu = () => {
           >
             <img
               src={logo}
-              alt="Voz & Vida Fonoaudiología"
+              alt="Lic. Natalia Rodríguez"
               className="h-9 w-auto object-contain md:h-10"
               width="400"
               height="102"
