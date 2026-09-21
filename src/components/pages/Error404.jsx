@@ -13,7 +13,8 @@ const Error404 = () => {
           Página no encontrada
         </h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg mx-auto leading-relaxed">
-          Lo sentimos, no pudimos encontrar el enlace que estás buscando. Es posible que sea incorrecto o haya sido movido.
+          Lo sentimos, no pudimos encontrar el enlace que estás buscando. Es
+          posible que sea incorrecto o haya sido movido.
         </p>
         <Button as="a" href="/" variant="primary">
           Volver al inicio
